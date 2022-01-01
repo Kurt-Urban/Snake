@@ -32,6 +32,13 @@ class Snake:
         new_segment.goto(new_pos)
         self.segments.append(new_segment)
 
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     def left(self):
         hding = self.head.heading()
         if hding != 0:
